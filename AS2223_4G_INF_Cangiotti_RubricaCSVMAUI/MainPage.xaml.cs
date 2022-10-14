@@ -48,9 +48,21 @@ public partial class MainPage : ContentPage
         }
 	}
 
-	private void btnVisualizza_Clicked(object sender, EventArgs e)
+	private async void btnVisualizza_Clicked(object sender, EventArgs e)
 	{
-
-	}
+        switch (cmbRicerca.SelectedItem)
+		{
+            case "stampa CSV":
+                break;
+            case "contiene":
+                break;
+            case "inizia":
+                break;
+            case "finisce":
+                break;
+            default:
+                await DisplayAlert("Errore", "Filtro di ricerca inesistente", "OK");
+                break;
+        }
+    }
 }
-

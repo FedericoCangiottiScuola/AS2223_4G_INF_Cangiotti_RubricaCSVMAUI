@@ -1,4 +1,6 @@
-﻿namespace AS2223_4G_INF_Cangiotti_RubricaCSVMAUI;
+﻿using System.Collections.ObjectModel;
+
+namespace AS2223_4G_INF_Cangiotti_RubricaCSVMAUI;
 
 public partial class MainPage : ContentPage
 {
@@ -7,7 +9,13 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 	}
 
-	static int nRecord = 0;
+	public class Item
+	{
+		public string ItemName{ get; set; }
+	}
+
+    ObservableCollection<Item> dsContatti = new ObservableCollection<Item>();
+    static int nRecord = 0;
 	Contatto[] contatti = new Contatto[nRecord];
 
 	void CaricaFileCSV()
@@ -25,6 +33,20 @@ public partial class MainPage : ContentPage
 				i++;
 			}
 		}
+    }
+
+	void StampaCSV()
+	{
+        for (int i = 0; i < nRecord; i++)
+        {
+            dsContatti.Add(
+				new Item() {
+					ItemName = $"{contatti[i].getCognome()} {contatti[i].getNome()}, {contatti[i].getCitta()}"
+				}
+			);
+
+			lstRisultati.ItemsSource = dsContatti;
+        }
     }
 
 	private async void btnCaricaFile_Clicked(object sender, EventArgs e)
@@ -53,6 +75,7 @@ public partial class MainPage : ContentPage
         switch (cmbRicerca.SelectedItem)
 		{
             case "stampa CSV":
+				StampaCSV();
                 break;
             case "contiene":
                 break;

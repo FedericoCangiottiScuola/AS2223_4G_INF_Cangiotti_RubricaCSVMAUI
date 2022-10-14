@@ -76,11 +76,11 @@
 
             <ListView 
                 x:Name="lstRisultati"
-                ItemsSource="{Binding }"
+                ItemsSource="{Binding dsContatti}"
                 >
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding }" />
+                        <TextCell Text="{Binding ItemName}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

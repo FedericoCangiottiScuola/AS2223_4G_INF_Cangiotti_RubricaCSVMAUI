@@ -37,6 +37,7 @@ public partial class MainPage : ContentPage
 
 	void StampaCSV()
 	{
+        dsContatti.Clear();
         for (int i = 0; i < nRecord; i++)
         {
             dsContatti.Add(
@@ -44,9 +45,9 @@ public partial class MainPage : ContentPage
 					ItemName = $"{contatti[i].getCognome()} {contatti[i].getNome()}, {contatti[i].getCitta()}"
 				}
 			);
-
-			lstRisultati.ItemsSource = dsContatti;
         }
+		
+		lstRisultati.ItemsSource = dsContatti;
     }
 
 	private async void btnCaricaFile_Clicked(object sender, EventArgs e)

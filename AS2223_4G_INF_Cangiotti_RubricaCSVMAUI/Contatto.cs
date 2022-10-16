@@ -12,19 +12,22 @@ namespace AS2223_4G_INF_Cangiotti_RubricaCSVMAUI
         string cognome;
         string citta;
 
-        public string getNome()
+        public string Nome
         {
-            return nome;
+            get { return nome; }
+            set { nome = value; }
         }
 
-        public string getCognome()
+        public string Cognome
         {
-            return cognome;
+            get { return cognome; }
+            set { cognome = value; }
         }
 
-        public string getCitta()
+        public string Citta
         {
-            return citta;
+            get { return citta; }
+            set { citta = value; }
         }
 
         public Contatto(string record)

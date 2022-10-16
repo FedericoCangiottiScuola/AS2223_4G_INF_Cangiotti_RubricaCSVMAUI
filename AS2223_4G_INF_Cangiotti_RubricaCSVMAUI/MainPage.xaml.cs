@@ -42,7 +42,7 @@ public partial class MainPage : ContentPage
         {
             dsContatti.Add(
 				new Item() {
-					ItemName = $"{contatti[i].getCognome()} {contatti[i].getNome()}, {contatti[i].getCitta()}"
+					ItemName = $"{contatti[i].Cognome} {contatti[i].Nome}, {contatti[i].Citta}"
 				}
 			);
         }
@@ -55,12 +55,12 @@ public partial class MainPage : ContentPage
         dsContatti.Clear();
         for (int i = 0; i < nRecord; i++)
         {
-			if (contatti[i].getCognome().ToLower().Contains(txtCognome.Text.ToLower()))
+			if (contatti[i].Cognome.ToLower().Contains(txtCognome.Text.ToLower()))
 			{
 				dsContatti.Add(
 					new Item()
 					{
-						ItemName = $"{contatti[i].getCognome()} {contatti[i].getNome()}, {contatti[i].getCitta()}"
+						ItemName = $"{contatti[i].Cognome} {contatti[i].Nome}, {contatti[i].Citta}"
 					}
 				);
 			}
@@ -74,12 +74,12 @@ public partial class MainPage : ContentPage
         dsContatti.Clear();
         for (int i = 0; i < nRecord; i++)
         {
-            if (contatti[i].getCognome().ToLower().StartsWith(txtCognome.Text.ToLower()))
+            if (contatti[i].Cognome.ToLower().StartsWith(txtCognome.Text.ToLower()))
             {
                 dsContatti.Add(
                     new Item()
                     {
-                        ItemName = $"{contatti[i].getCognome()} {contatti[i].getNome()}, {contatti[i].getCitta()}"
+                        ItemName = $"{contatti[i].Cognome} {contatti[i].Nome}, {contatti[i].Citta}"
                     }
                 );
             }
@@ -93,12 +93,12 @@ public partial class MainPage : ContentPage
         dsContatti.Clear();
         for (int i = 0; i < nRecord; i++)
         {
-            if (contatti[i].getCognome().ToLower().EndsWith(txtCognome.Text.ToLower()))
+            if (contatti[i].Cognome.ToLower().EndsWith(txtCognome.Text.ToLower()))
             {
                 dsContatti.Add(
                     new Item()
                     {
-                        ItemName = $"{contatti[i].getCognome()} {contatti[i].getNome()}, {contatti[i].getCitta()}"
+                        ItemName = $"{contatti[i].Cognome} {contatti[i].Nome}, {contatti[i].Citta}"
                     }
                 );
             }

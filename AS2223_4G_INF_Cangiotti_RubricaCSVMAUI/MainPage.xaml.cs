@@ -130,6 +130,12 @@ public partial class MainPage : ContentPage
 
 	private async void btnVisualizza_Clicked(object sender, EventArgs e)
 	{
+        if ((txtCognome.Text == null || txtCognome.Text == "") && (string)cmbRicerca.SelectedItem != "stampa CSV")
+        {
+            await DisplayAlert("Errore", "Nessun cognome inserito", "OK");
+            return;
+        }
+
         switch (cmbRicerca.SelectedItem)
 		{
             case "stampa CSV":

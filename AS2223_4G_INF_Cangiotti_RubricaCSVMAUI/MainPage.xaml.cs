@@ -50,7 +50,26 @@ public partial class MainPage : ContentPage
 		lstRisultati.ItemsSource = dsContatti;
     }
 
-	private async void btnCaricaFile_Clicked(object sender, EventArgs e)
+    void StampaCognomiContiene()
+    {
+        dsContatti.Clear();
+        for (int i = 0; i < nRecord; i++)
+        {
+			if (contatti[i].getCognome().ToLower().Contains(txtCognome.Text.ToLower()))
+			{
+				dsContatti.Add(
+					new Item()
+					{
+						ItemName = $"{contatti[i].getCognome()} {contatti[i].getNome()}, {contatti[i].getCitta()}"
+					}
+				);
+			}
+        }
+
+        lstRisultati.ItemsSource = dsContatti;
+    }
+
+    private async void btnCaricaFile_Clicked(object sender, EventArgs e)
 	{
 		try
 		{
@@ -79,6 +98,7 @@ public partial class MainPage : ContentPage
 				StampaCSV();
                 break;
             case "contiene":
+				StampaCognomiContiene();
                 break;
             case "inizia":
                 break;

@@ -11,7 +11,8 @@ public partial class MainPage : ContentPage
 
 	public class Item
 	{
-		public string ItemName{ get; set; }
+		public string nomeCognome{ get; set; }
+		public string citta{ get; set; }
 	}
 
     ObservableCollection<Item> dsContatti = new ObservableCollection<Item>();
@@ -42,7 +43,8 @@ public partial class MainPage : ContentPage
         {
             dsContatti.Add(
 				new Item() {
-					ItemName = $"{contatti[i].Cognome} {contatti[i].Nome}, {contatti[i].Citta}"
+					nomeCognome = $"{contatti[i].Nome} {contatti[i].Cognome}",
+					citta = $"{contatti[i].Citta}"
 				}
 			);
         }
@@ -58,11 +60,12 @@ public partial class MainPage : ContentPage
 			if (contatti[i].Cognome.ToLower().Contains(txtCognome.Text.ToLower()))
 			{
 				dsContatti.Add(
-					new Item()
-					{
-						ItemName = $"{contatti[i].Cognome} {contatti[i].Nome}, {contatti[i].Citta}"
-					}
-				);
+                    new Item()
+                    {
+                        nomeCognome = $"{contatti[i].Nome} {contatti[i].Cognome}",
+                        citta = $"{contatti[i].Citta}"
+                    }
+                );
 			}
         }
 
@@ -79,7 +82,8 @@ public partial class MainPage : ContentPage
                 dsContatti.Add(
                     new Item()
                     {
-                        ItemName = $"{contatti[i].Cognome} {contatti[i].Nome}, {contatti[i].Citta}"
+                        nomeCognome = $"{contatti[i].Nome} {contatti[i].Cognome}",
+                        citta = $"{contatti[i].Citta}"
                     }
                 );
             }
@@ -98,7 +102,8 @@ public partial class MainPage : ContentPage
                 dsContatti.Add(
                     new Item()
                     {
-                        ItemName = $"{contatti[i].Cognome} {contatti[i].Nome}, {contatti[i].Citta}"
+                        nomeCognome = $"{contatti[i].Nome} {contatti[i].Cognome}",
+                        citta = $"{contatti[i].Citta}"
                     }
                 );
             }

@@ -4,88 +4,69 @@
              x:Class="AS2223_4G_INF_Cangiotti_RubricaCSVMAUI.MainPage">
 
     <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center"
-            >
+        <VerticalStackLayout>
+            <VerticalStackLayout Spacing="30" Margin="20, 40">
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="25">
+                    <Label
+                        Text="File CSV rubrica"
+                        FontSize="20"
+                        />
 
-            <HorizontalStackLayout
-                HorizontalOptions="Center"
-                Spacing="25"
-                >
-                
-                <Label
-                    Text="File CSV rubrica"
-                    FontSize="20"
-                    />
+                    <Entry
+                        x:Name="txtFile"
+                        WidthRequest="200"
+                        IsReadOnly="True"
+                        HorizontalOptions="StartAndExpand"
+                        />
 
-                <Entry
-                    x:Name="txtFile"
-                    WidthRequest="200"
-                    IsReadOnly="True"
-                    />
+                    <Button
+                        x:Name="btnCaricaFile"
+                        Text="..."
+                        Clicked="btnCaricaFile_Clicked"
+                        />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="25">
+                    <Label
+                        Text="Cognome"
+                        FontSize="20"
+                        />
+
+                    <Entry
+                        x:Name="txtCognome"
+                        Placeholder="Inserisci un cognome"
+                        />
+
+                    <Picker x:Name="cmbRicerca">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>stampa CSV</x:String>
+                                <x:String>contiene</x:String>
+                                <x:String>inizia</x:String>
+                                <x:String>finisce</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </HorizontalStackLayout>
 
                 <Button
-                    x:Name="btnCaricaFile"
-                    Text="..."
-                    Clicked="btnCaricaFile_Clicked"
+                    x:Name="btnVisualizza"
+                    Text="Visualizza"
+                    Clicked="btnVisualizza_Clicked"
+                    HorizontalOptions="Center"
                     />
-
-            </HorizontalStackLayout>
-
-            <HorizontalStackLayout
-                HorizontalOptions="Center"
-                Spacing="25"
-                >
-
-                <Label
-                    Text="Cognome"
-                    FontSize="20"
-                    />
-
-                <Entry
-                    x:Name="txtCognome"
-                    Placeholder="Inserisci un cognome"
-                    />
-
-                <Picker
-                    x:Name="cmbRicerca"
-                    >
-                    <Picker.Items>
-                        
-                    </Picker.Items>
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>stampa CSV</x:String>
-                            <x:String>contiene</x:String>
-                            <x:String>inizia</x:String>
-                            <x:String>finisce</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
-                </Picker>
-
-            </HorizontalStackLayout>
-
-            <Button
-                x:Name="btnVisualizza"
-                Text="Visualizza"
-                Clicked="btnVisualizza_Clicked"
-                HorizontalOptions="Center"
-                />
-
-            <ListView 
-                x:Name="lstRisultati"
-                ItemsSource="{Binding dsContatti}"
-                >
+            </VerticalStackLayout>
+            
+            <ListView x:Name="lstRisultati" ItemsSource="{Binding dsContatti}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding ItemName}" />
+                        <TextCell
+                            Text="{Binding nomeCognome}"
+                            Detail="{Binding citta}"
+                            />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>
